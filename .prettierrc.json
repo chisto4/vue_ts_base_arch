@@ -1,1 +1,13 @@
-{}
+{
+  "folders": [],
+  "settings": {},
+  "editor.formatOnSave": true,
+  "semi": true,
+  "singleQuote": true,
+  "endOfLine":"auto",
+  "tabWidth": 2,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["vue"]
+}

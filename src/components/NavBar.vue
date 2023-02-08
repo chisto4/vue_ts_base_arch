@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-defineProps<{
-  msg: string;
-}>();
-</script>
-
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="32" height="32" />
@@ -14,9 +7,29 @@ defineProps<{
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/ulbi">Ulbi</RouterLink>
     </nav>
+    <div>
+      <button @click="clearLocal">LOG OUT</button>
+    </div>
   </header>
 </template>
+
+<script>
+import router from '@/router';
+import { RouterLink, RouterView } from 'vue-router';
+export default {
+  props: {
+    msg: String,
+  },
+  methods: {
+    clearLocal() {
+      localStorage.clear();
+      router.push({ path: '/', replace: true });
+    },
+  },
+};
+</script>
 
 <style scoped>
 header {
@@ -27,6 +40,29 @@ header {
   width: 100vw;
   display: flex;
   align-items: center;
+  padding: 0vh 3vh;
+}
+
+header button {
+  cursor: pointer;
+  background-color: #181818;
+  width: 7vw;
+  padding: 1vh;
+  border: none;
+  border-radius: 3vw;
+  color: hsla(160, 10%, 37%, 1);
+  font-size: 1.5vh;
+  transition: 0.6s;
+}
+
+header button:hover {
+  transform: scale(103%);
+  color: hsla(160, 100%, 37%, 1);
+}
+
+header button:active {
+  transform: scale(98%);
+  color: hsla(160, 80%, 37%, 1);
 }
 
 nav {
@@ -75,7 +111,6 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-
   /* header {
     display: flex;
     align-items: center;

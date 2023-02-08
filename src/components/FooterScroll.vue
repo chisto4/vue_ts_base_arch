@@ -1,7 +1,7 @@
 <template>
   <footer>
     <!-- <div class="wrapper"> -->
-    <Flicking :options="{
+    <Flicking ref="flicking" :options="{
       renderOnlyVisible: true, circular: true,
       resizeOnContentsReady: true,
       deceleration: 0.0005,
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -81,9 +82,15 @@ footer {
 }
 
 .image {
-  height: 15vh;
-  width: 12vw;
+  height: 25vh;
+  width: 17vw;
   object-fit: cover;
+}
+
+.frame {
+  height: 55vh;
+  width: 32vw;
+  object-fit: contain;
 }
 
 .wrapper {
