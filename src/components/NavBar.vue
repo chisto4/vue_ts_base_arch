@@ -10,23 +10,39 @@
       <RouterLink to="/ulbi">Ulbi</RouterLink>
     </nav>
     <div>
-      <button @click="clearLocal">LOG OUT</button>
+      <button v-if="loginStatus" @click="clearLocal">LOG OUT</button>
+      <button v-if="!loginStatus" @click="showModal = true">LOG IN</button>
     </div>
   </header>
+  <Teleport to="body">
+    <!-- use the modal component, pass in the prop -->
+    <modal :show="showModal" @close="showModal = false"/>
+  </Teleport>
 </template>
 
 <script>
 import router from '@/router';
 import { RouterLink, RouterView } from 'vue-router';
+import Modal from './Modals/SingUpModal.vue';
 export default {
   props: {
     msg: String,
+  },
+  components: {
+    Modal,
   },
   methods: {
     clearLocal() {
       localStorage.clear();
       router.push({ path: '/', replace: true });
     },
+  },
+  data() {
+    const localLoginStatus = localStorage.getItem('login');
+    return {
+      loginStatus: localLoginStatus ? localLoginStatus : false,
+      showModal: false,
+    };
   },
 };
 </script>
