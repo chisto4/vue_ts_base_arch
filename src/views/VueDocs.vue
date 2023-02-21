@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WelcomeItem from "./WelcomeItem.vue";
+import WelcomeItem from "../components/WelcomeItem.vue";
 import DocumentationIcon from "../assets/icons/IconDocumentation.vue";
 import ToolingIcon from "../assets/icons/IconTooling.vue";
 import EcosystemIcon from "../assets/icons/IconEcosystem.vue";

@@ -7,7 +7,9 @@
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/ulbi">Ulbi</RouterLink>
+      <RouterLink to="/vuedocs">VueDocs</RouterLink>
+      <RouterLink to="/girls">Girls</RouterLink>
+      <RouterLink to="/flood">Flood News</RouterLink>
     </nav>
     <div>
       <button v-if="loginStatus" @click="clearLocal">LOG OUT</button>
@@ -32,9 +34,10 @@ export default {
     Modal,
   },
   methods: {
-    clearLocal() {
+    async clearLocal() {
       localStorage.clear();
-      router.push({ path: '/', replace: true });
+      await router.push({ path: '/', replace: true });
+      window.location.reload();
     },
   },
   data() {
@@ -57,6 +60,8 @@ header {
   display: flex;
   align-items: center;
   padding: 0vh 3vh;
+  background-color: #181818;
+  z-index: 10;
 }
 
 header button {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-import NavBar from "./components/NavBar.vue";
+import { RouterLink, RouterView } from 'vue-router';
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
@@ -9,5 +9,6 @@ import NavBar from "./components/NavBar.vue";
 </template>
 
 <style scoped>
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+}
 </style>

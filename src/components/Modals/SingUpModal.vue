@@ -7,6 +7,10 @@ export default {
     handleChangeLoginRegisterForm() {
       this.changeModal = !this.changeModal;
     },
+    handleAuth() {
+      localStorage.setItem('login', 'login');
+      window.location.reload();
+    }
   },
   data() {
     return {
@@ -23,7 +27,7 @@ export default {
         <p class="modal-default-button" @click="$emit('close')">╳</p>
         <h3 v-if="changeModal">Login</h3>
         <h3 v-if="!changeModal">Registration</h3>
-        <form v-if="changeModal">
+        <form @submit.prevent v-if="changeModal">
           <label>First Name</label>
           <input placeholder="James" type="text" />
 
@@ -36,16 +40,16 @@ export default {
           <label>Password</label>
           <input placeholder="Password" type="password" />
           <input placeholder="Confirm password" type="password" />
-          <input class="button" type="button" value="CRATE" />
+          <input @click="handleAuth" class="button" type="submit" value="CRATE" />
         </form>
 
-        <form v-if="!changeModal">
+        <form @submit.prevent v-if="!changeModal">
           <label>Email</label>
           <input placeholder="007@mail.ru" type="email" />
 
           <label>Password</label>
           <input placeholder="Password" type="password" />
-          <input class="button" type="button" value="LOGIN" />
+          <input @click="handleAuth" class="button" type="submit" value="LOGIN" />
         </form>
 
         <p
